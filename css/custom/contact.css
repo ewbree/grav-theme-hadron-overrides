@@ -1,0 +1,15 @@
+
+form#contact {
+  max-width: 800px;
+  margin: auto;
+}
+
+form:not(.login-form) button.page-button {
+  color: white;
+  background-color: #BB1C17;
+  border: 0px;
+  border-radius: 16px;
+  max-width: 15rem;
+  height: 4rem;
+  margin: auto
+}

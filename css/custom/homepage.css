@@ -1,0 +1,47 @@
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12rem;
+}
+
+@media (max-width: 840px) {
+  .two-col {
+    grid-template-columns: 1fr; /* will show one column stacked on mobile devices */
+  }
+}
+
+.two-col .col img {
+  width: 360px;
+  height: 192px;
+  align-items: center;
+}
+.img-row {
+  display: inline-flex;
+  gap: 12px;
+}
+
+/* Home page tiles settings */
+.col-title {
+  font-size: 4rem;
+  color: black;
+}
+
+.hometile-img {
+  opacity: 1;
+  background: white;
+  object-fit: cover;
+  transition: all 0.18s ease;
+  border-radius: 16px;
+}
+.hometile-img:hover {
+  opacity: 0.9;
+  transform: scale(1.035); 
+}
+.hometile-text {
+  font-size: 125%;
+  text-align: center;
+  margin: auto;
+  color: black;
+  font-weight: 300;
+}

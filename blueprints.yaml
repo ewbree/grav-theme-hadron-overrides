@@ -1,0 +1,303 @@
+name: 'Ewoud Fotografie Overrides'
+slug: 'ewoudfotografie'
+type: theme
+version: 1.0.0
+description: 'Site-specific overrides for Hadron: light-only appearance, no theme toggle, bright active nav item, and external menu links opening in a new tab.'
+icon: sliders
+author:
+  name: 'Ewoud Willem den Breeijen'
+  email: contact@ewoudfotografie.nl
+  url: 'https://ewoudfotografie.nl'
+keywords: hadron, quark2, overrides, customization
+license: MIT
+
+dependencies:
+  - { name: grav, version: '>=2.0.0' }
+  - { name: quark2, version: '>=1.0.0' }
+  - { name: hadron, version: '>=3.0.0' }
+
+form:
+  validation: loose
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+
+        appearance:
+          type: tab
+          title: THEME.APPEARANCE.TITLE
+          fields:
+
+            theme-mode:
+              type: select
+              label: THEME.APPEARANCE.THEME_MODE.LABEL
+              help: THEME.APPEARANCE.THEME_MODE.HELP
+              size: small
+              default: auto
+              options:
+                auto: THEME.APPEARANCE.THEME_MODE.OPTIONS.AUTO
+                light: THEME.APPEARANCE.THEME_MODE.OPTIONS.LIGHT
+                dark: THEME.APPEARANCE.THEME_MODE.OPTIONS.DARK
+
+            accent-color:
+              type: colorpicker
+              label: THEME.APPEARANCE.ACCENT_COLOR.LABEL
+              help: THEME.APPEARANCE.ACCENT_COLOR.HELP
+              default: '#242424'
+
+            branding_section:
+              type: section
+              title: THEME.APPEARANCE.BRANDING.TITLE
+            custom_favicon:
+              type: file
+              label: THEME.APPEARANCE.BRANDING.CUSTOM_FAVICON.LABEL
+              help: THEME.APPEARANCE.BRANDING.CUSTOM_FAVICON.HELP
+              filesize: 0.1
+              size: large
+              destination: 'media/favicon'
+              multiple: false
+              markdown: true
+              accept:
+                - image/png
+                - image/svg+xml
+                - .ico
+            monochrome-logo:
+              type: toggle
+              label: THEME.APPEARANCE.BRANDING.MONOCHROME_LOGO.LABEL
+              help: THEME.APPEARANCE.BRANDING.MONOCHROME_LOGO.HELP
+              highlight: 0
+              default: 0
+              options:
+                1: PLUGIN_ADMIN.ENABLED
+                0: PLUGIN_ADMIN.DISABLED
+              validate:
+                type: bool
+            custom_logo:
+              type: file
+              label: THEME.APPEARANCE.BRANDING.CUSTOM_LOGO.LABEL
+              help: THEME.APPEARANCE.BRANDING.CUSTOM_LOGO.HELP
+              size: large
+              destination: 'media/logo'
+              multiple: false
+              markdown: true
+              accept:
+                - image/*
+            custom_logo_mobile:
+              type: file
+              label: THEME.APPEARANCE.BRANDING.CUSTOM_LOGO_MOBILE.LABEL
+              size: large
+              destination: 'media/logo'
+              multiple: false
+              accept:
+                - image/*
+
+            header_section:
+              type: section
+              title: THEME.APPEARANCE.HEADER.TITLE
+            header-fixed:
+              type: toggle
+              label: THEME.APPEARANCE.HEADER.HEADER_FIXED.LABEL
+              help: THEME.APPEARANCE.HEADER.HEADER_FIXED.HELP
+              highlight: 1
+              default: 1
+              options:
+                1: PLUGIN_ADMIN.ENABLED
+                0: PLUGIN_ADMIN.DISABLED
+              validate:
+                type: bool
+            header-animated:
+              type: toggle
+              label: THEME.APPEARANCE.HEADER.HEADER_ANIMATED.LABEL
+              help: THEME.APPEARANCE.HEADER.HEADER_ANIMATED.HELP
+              highlight: 1
+              default: 1
+              options:
+                1: PLUGIN_ADMIN.ENABLED
+                0: PLUGIN_ADMIN.DISABLED
+              validate:
+                type: bool
+            header-transparent:
+              type: toggle
+              label: THEME.APPEARANCE.HEADER.HEADER_TRANSPARENT.LABEL
+              help: THEME.APPEARANCE.HEADER.HEADER_TRANSPARENT.HELP
+              highlight: 0
+              default: 0
+              options:
+                1: PLUGIN_ADMIN.ENABLED
+                0: PLUGIN_ADMIN.DISABLED
+              validate:
+                type: bool
+
+            footer_section:
+              type: section
+              title: THEME.APPEARANCE.FOOTER.TITLE
+            sticky-footer:
+              type: toggle
+              label: THEME.APPEARANCE.FOOTER.STICKY_FOOTER.LABEL
+              help: THEME.APPEARANCE.FOOTER.STICKY_FOOTER.HELP
+              highlight: 1
+              default: 1
+              options:
+                1: PLUGIN_ADMIN.ENABLED
+                0: PLUGIN_ADMIN.DISABLED
+              validate:
+                type: bool
+
+        menu:
+          type: tab
+          title: THEME.MENU.TITLE
+          fields:
+            hide_title:
+              type: toggle
+              label: THEME.MENU.HIDE_TITLE.LABEL
+              help: THEME.MENU.HIDE_TITLE.HELP
+              highlight: 0
+              default: 0
+              options:
+                1: PLUGIN_ADMIN.ENABLED
+                0: PLUGIN_ADMIN.DISABLED
+              validate:
+                type: bool
+            dropdown.enabled:
+              type: toggle
+              label: THEME.MENU.DISPLAY_DROPDOWNS.LABEL
+              highlight: 1
+              default: 1
+              options:
+                1: PLUGIN_ADMIN.ENABLED
+                0: PLUGIN_ADMIN.DISABLED
+              validate:
+                type: bool
+            custommenus.enabled:
+              type: toggle
+              label: THEME.MENU.DISPLAY_CUSTOM_MENUS.LABEL
+              help: THEME.MENU.DISPLAY_CUSTOM_MENUS.HELP
+              highlight: 1
+              default: 1
+              options:
+                1: PLUGIN_ADMIN.ENABLED
+                0: PLUGIN_ADMIN.DISABLED
+              validate:
+                type: bool
+
+            menu:
+              type: list
+              label: THEME.MENU.ITEMS.LABEL
+              fields:
+                .text:
+                  type: text
+                  label: THEME.MENU.ITEMS.TEXT.LABEL
+                  description: THEME.MENU.ITEMS.TEXT.DESCRIPTION
+                .icon:
+                  type: text
+                  label: THEME.MENU.ITEMS.ICON.LABEL
+                  description: THEME.MENU.ITEMS.ICON.DESCRIPTION
+                .url:
+                  type: text
+                  label: THEME.MENU.ITEMS.URL.LABEL
+                  description: THEME.MENU.ITEMS.URL.DESCRIPTION
+                .target:
+                  type: select
+                  label: THEME.MENU.ITEMS.TARGET.LABEL
+                  default: _self
+                  size: medium
+                  options:
+                    _blank: THEME.MENU.ITEMS.TARGET.OPTIONS.BLANK
+                    _parent: THEME.MENU.ITEMS.TARGET.OPTIONS.PARENT
+                    _top: THEME.MENU.ITEMS.TARGET.OPTIONS.TOP
+                    _self: THEME.MENU.ITEMS.TARGET.OPTIONS.SELF
+
+        features:
+          type: tab
+          title: THEME.FEATURES.TITLE
+          fields:
+
+            icons_section:
+              type: section
+              title: THEME.FEATURES.ICONS.TITLE
+            fontawesome.enabled:
+              type: toggle
+              label: THEME.FEATURES.ICONS.ENABLED.LABEL
+              help: THEME.FEATURES.ICONS.ENABLED.HELP
+              highlight: 1
+              default: 1
+              options:
+                1: PLUGIN_ADMIN.ENABLED
+                0: PLUGIN_ADMIN.DISABLED
+              validate:
+                type: bool
+            fontawesome.local:
+              type: toggle
+              label: THEME.FEATURES.ICONS.LOCAL.LABEL
+              help: THEME.FEATURES.ICONS.LOCAL.HELP
+              highlight: 0
+              default: 0
+              options:
+                1: PLUGIN_ADMIN.ENABLED
+                0: PLUGIN_ADMIN.DISABLED
+              validate:
+                type: bool
+
+            langswitcher_section:
+              type: section
+              title: THEME.FEATURES.LANG_SWITCHER.TITLE
+            langswitcher.enable:
+              type: toggle
+              label: THEME.FEATURES.LANG_SWITCHER.ENABLE.LABEL
+              highlight: 1
+              default: 1
+              options:
+                1: PLUGIN_ADMIN.ENABLED
+                0: PLUGIN_ADMIN.DISABLED
+              validate:
+                type: bool
+            langswitcher.display:
+              type: select
+              size: small
+              label: THEME.FEATURES.LANG_SWITCHER.DISPLAY.LABEL
+              default: inline
+              options:
+                dropdown: THEME.FEATURES.LANG_SWITCHER.DISPLAY.OPTIONS.DROPDOWN
+                inline: THEME.FEATURES.LANG_SWITCHER.DISPLAY.OPTIONS.INLINE
+            langswitcher.format:
+              type: select
+              size: small
+              label: THEME.FEATURES.LANG_SWITCHER.FORMAT.LABEL
+              default: icon
+              options:
+                combined: THEME.FEATURES.LANG_SWITCHER.FORMAT.OPTIONS.COMBINED
+                short: THEME.FEATURES.LANG_SWITCHER.FORMAT.OPTIONS.SHORT
+                long: THEME.FEATURES.LANG_SWITCHER.FORMAT.OPTIONS.LONG
+                icon: THEME.FEATURES.LANG_SWITCHER.FORMAT.OPTIONS.ICON
+
+            blog_section:
+              type: section
+              title: THEME.FEATURES.BLOG.TITLE
+            blog-page:
+              type: text
+              label: THEME.FEATURES.BLOG.BLOG_PAGE.LABEL
+              help: THEME.FEATURES.BLOG.BLOG_PAGE.HELP
+              size: medium
+              default: '/blog'
+
+            h5p:
+              type: section
+              title: THEME.FEATURES.H5P.TITLE
+            h5pembedrootpath:
+              type: text
+              size: long
+              label: THEME.FEATURES.H5P.EMBED_URL.LABEL
+              default: 'https://h5p.org/h5p/embed/'
+              help: THEME.FEATURES.H5P.EMBED_URL.HELP
+              description: THEME.FEATURES.H5P.EMBED_URL.DESCRIPTION
+              validate:
+                type: URL
+
+        custom:
+          type: tab
+          title: Custom
+          fields:
+            nothing:
+              type: section
+              title: No custom settings created yet.

@@ -1,0 +1,77 @@
+
+@import "./custom/homepage.css";
+@import "./custom/navbar.css";
+@import "./custom/contact.css";
+@import "./custom/images.css";
+@import "./custom/featured.css";
+/*@import "./custom/return-to-top.css";*/
+
+
+/* Font override */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+body, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif !important;
+    font-style: normal;
+    font-weight: 300;
+    font-color: black !important;
+}
+
+
+/* BODY */
+body {
+    animation: fadeIn 0.3s ease-out forwards;
+    opacity: 0;
+    background-color: #eaeaea;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Entire webpage max width */
+.container {
+    max-width: 1700px !important;
+}
+/* Reduce the large default .section padding */
+#start > .section {
+    padding-block: clamp(1rem, 1vw, 1rem);
+}
+
+
+/** GENERAL **/
+a:link {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:active {
+  text-decoration: underline;
+}
+
+.modular-text img {
+  box-shadow: 0px 0px !important;
+}
+
+
+/** HERO SECTION **/
+.pulse {
+   display: none !important;
+}
+.hero {
+    padding-top: 3.8em !important;
+    padding-bottom: 1rem !important;
+    box-shadow: 0px 10px 25px rgba(90, 90, 90, 0.2)
+}
+.header-fixed .hero {
+    background-position: 50% 33%;
+}
+
+
+/** FOOTER **/
+#footer {
+    background-color: #d1d1d1 !important;
+}

@@ -1,0 +1,35 @@
+{#
+    Copy of Hadron v3's templates/partials/logo.html.twig with one change,
+    adapted from commit 7ae3656 of ewbree/grav-theme-hadron:
+
+    When no custom logo is set and "hide title" is off, show the site title
+    instead of falling back to grav-logo.svg. With "hide title" on, keep the
+    Grav logo as before.
+
+    The original commit used `config.theme.hide_title`, which does not read the
+    active theme's setting; this copy uses `theme_var('hide_title')` so the
+    Hide Title option actually works.
+
+    If Hadron changes this partial upstream, diff it against this file and
+    re-apply the fallback block in the `{% else %}` branch.
+#}
+{% set logo = theme_var(mobile ? 'custom_logo_mobile' : 'custom_logo') %}
+{% set logo_first = (logo is iterable and logo|length > 0) ? logo|first : null %}
+{% set logo_file = logo_first.path|default(null) %}
+{% set title = config.site.slug ?  config.site.slug : config.site.title %}
+{% set monochrome = theme_var('monochrome-logo') ? 'invert-color' : '' %}
+
+<a href="{{ home_url }}" class="navbar-brand" aria-label="{{ site.title }}" title="{{ site.title }}">
+    {% if logo_file %}
+        <img src="{{ url(logo_file) }}" alt="{{ site.title }}" class="{{ monochrome }}" />
+        {% if not theme_var('hide_title') %}
+            <span class="title">{{ title }}</span>
+        {% endif %}
+    {% else %}
+        {% if not theme_var('hide_title') %}
+            <span class="title">{{ site.title }}</span>
+        {% else %}
+            {% include '@images/grav-logo.svg' ignore missing %}
+        {% endif %}
+    {% endif %}
+</a>

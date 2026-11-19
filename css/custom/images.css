@@ -1,0 +1,11 @@
+
+.img-row {
+  display: inline-flex;
+  gap: 12px;
+}
+
+.img-grid {
+  border-radius: 20px;
+  overflow: hidden;
+  object-fit: cover;
+}

@@ -1,0 +1,53 @@
+
+/* Entire navbar */
+.header-fixed #header {
+    background-color: #d1d1d1 !important;
+    box-shadow: 0px 8px 24px rgba(120, 120, 120, 0.3);
+}
+.navbar {
+    display: inline-flex !important;
+}
+.navbar-section {
+    flex: auto !important;
+}
+.navbar-brand {
+    font-family: 'Roboto', sans-serif !important;
+    font-style: normal;
+    font-weight: 300;
+}
+body #header {
+    padding: 0.3rem !important;
+}
+
+/* Title part */
+.title {
+    font-size: 2rem;
+    font-weight: 1;
+    color: black;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+/* Active menu item: bright white pill instead of the dark one */
+.dropmenu ul li a.active,
+.dropmenu ul li a.active:hover {
+   background: #ffffff !important;
+   color: #242424 !important;
+   font-weight: 400 !important;
+   text-decoration: underline;
+}
+
+/* Removes the light/dark mode toggle in screen */
+.theme-toggle { display: none !important; }
+
+
+#header a {
+   font-size: initial;
+   font-weight: 400;
+   color: black;
+}
+
+.dropmenu ul ul {
+   min-width: 17rem;
+   background: #c9c9c9;
+}

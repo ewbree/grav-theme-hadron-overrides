@@ -1,0 +1,32 @@
+{#
+    Copy of Hadron's templates/macros/macros.html.twig (v3.0.0), with one
+    change: menu items whose URL is absolute (e.g. the social pages under
+    Contact, which use Grav's `external_url`) open in a new tab.
+
+    If Hadron changes this macro upstream, diff it against this file and
+    re-apply the `is_external` lines.
+#}
+{% macro nav_loop(page) %}
+    {% import _self as macros %}
+    {% for p in page.children.visible %}
+        {% set is_active = p.active or p.activeChild %}
+        {% set has_children = (p.children.visible|length) > 0 and theme_var('dropdown.enabled') %}
+        {% set menu_icon = p.header.menu_icon|fa_icon %}
+        {% set is_external = p.url starts with 'http://' or p.url starts with 'https://' %}
+
+        <li{% if has_children %} class="has-children"{% endif %}>
+            <a href="{{ p.url }}" class="{{ is_active ? 'active' : '' }}"{% if is_external %} target="_blank" rel="noopener noreferrer"{% endif %}>
+                {% if menu_icon %}
+                    <i class="{{ menu_icon }}" aria-hidden="true"></i>
+                {% endif %}
+                {{ p.menu }}
+            </a>
+
+            {% if has_children %}
+                <ul>
+                    {{ macros.nav_loop(p) }}
+                </ul>
+            {% endif %}
+        </li>
+    {% endfor %}
+{% endmacro %}
