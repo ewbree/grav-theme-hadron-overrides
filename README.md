@@ -30,6 +30,20 @@ Then either:
 - Admin → Themes → **Ewoud Fotografie Overrides** → Activate, or
 - set `system.pages.theme: ewoudfotografie` in `user/config/system.yaml`.
 
+### Carry over your existing theme settings
+
+Theme settings are stored per theme, so Hadron's settings do not follow automatically. If
+`user/config/themes/hadron.yaml` exists, copy it over so your favicon, logos, header options
+and any custom menu items come with you:
+
+```bash
+cp user/config/themes/hadron.yaml user/config/themes/ewoudfotografie.yaml
+```
+
+The copied file normally contains only settings (no `streams:` key — that lives in the
+theme's own `ewoudfotografie.yaml` and must stay there). If you never changed a setting, there
+is nothing to copy for it.
+
 Finally clear the cache (Admin → Dashboard → Clear Cache, or `bin/grav clear-cache`) and
 hard-refresh the site.
 
@@ -75,5 +89,11 @@ automatically shadow the same paths in Hadron and Quark 2.
   `theme_var('hide_title')` instead of the commit's `config.theme.hide_title`, so the Hide
   Title option actually takes effect. After a Hadron update, diff them against
   `user/themes/hadron/templates/` and re-apply those additions if the upstream files changed.
+- `languages/en.yaml` and `languages/de.yaml` are copied from Hadron so the theme settings
+  labels resolve in Admin. Without them, the blueprint tabs and fields fall back to
+  "Title"/"Label" placeholders.
+- The language switcher is disabled in `ewoudfotografie.yaml` because the site is
+  monolingual (matching the previous Hadron setup). If you add a language later, enable it
+  under Theme Settings → Features; the translations are now present.
 - `css/custom.css` and `css/custom/*.css` were copied from the live Hadron theme as they
   were on 2026-11-19. From now on, edit them here instead.

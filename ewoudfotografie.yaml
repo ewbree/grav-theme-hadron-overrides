@@ -28,8 +28,10 @@ fontawesome:
   enabled: true
   local: false
 
+# Monolingual site: the switcher is off, matching the previous Hadron setup.
+# The partial and translations are still present if you ever add a language.
 langswitcher:
-  enable: true
+  enable: false
   display: inline
   format: icon
 
