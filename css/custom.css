@@ -8,25 +8,26 @@
 /*@import "./custom/return-to-top.css";*/
 
 
-/* Font override */
-/* body, h1, h2, h3, h4, h5, h6 {
-    font-family: 'Roboto', sans-serif !important;
-    font-style: normal;
-    font-weight: 300;
-    font-color: black !important;
-} */
-
-
-/* BODY */
-body {
-    animation: fadeIn 0.3s ease-out forwards;
-    opacity: 0;
+html {
     background-color: #eaeaea;
+}
+body {
+    background-color: transparent;
+    animation: fadeIn 0.25s ease-out both;
+    opacity: 0;
 }
 @keyframes fadeIn {
     from { opacity: 0; }
     to   { opacity: 1; }
 }
+/* Adheres to browsers preferring no motion for user with vestibular motion disorders */
+@media (prefers-reduced-motion: reduce) {
+    body {
+        animation: none;
+        opacity: 1;
+    }
+}
+
 
 /* Entire webpage max width */
 .container {
